@@ -37,10 +37,12 @@ class Statistics < Array
 
   def median
     #中央値
-    if (self.length%2==0)
-      (self.length+1)/2.0
+    if self.length <= 2
+      self.mean
+    elsif (self.length%2==1)
+      self[(self.length+1)/2]
     else
-      ((self.length)/2+(self.length+1))/2.0
+      (self[self.length/2] + self[self.length/2+1])/2.0
     end
   end
 
